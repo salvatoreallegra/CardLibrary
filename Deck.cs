@@ -25,5 +25,16 @@ namespace CardClassLibrary
 
             }
         }
+        public void shuffle()
+        {
+            CurrentCard = 0;
+            for(var first = 0; first < deck.Length; ++first)
+            {
+                var second = Random.Next(NumberOfCards);
+                Card temp = deck[first];
+                deck[first] = deck[second];
+                deck[second] = temp;
+            }
+        }
     }
 }
