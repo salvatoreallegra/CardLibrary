@@ -21,8 +21,6 @@ namespace CardClassLibrary
             for(var count = 0; count < deck.Length; count++)
             {
                 deck[count] = new Card(suits[count / 13], values[count % 13]);
-                Console.WriteLine("count " + count + " " + count / 13);
-
             }
         }
         public void shuffle()
@@ -35,6 +33,17 @@ namespace CardClassLibrary
                 deck[first] = deck[second];
                 deck[second] = temp;
             }
+        }
+        public Card? dealCard()
+        {
+            if(CurrentCard < deck.Length)
+            {
+                return deck[CurrentCard++];
+            }
+            else { 
+                return null; 
+            }
+                
         }
     }
 }
